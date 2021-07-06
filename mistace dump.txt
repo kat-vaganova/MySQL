@@ -1,0 +1,50 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| VK                 |
+| example            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sample             |
+| shop               |
+| sys                |
++--------------------+
+8 rows in set (1,23 sec)
+
+mysql> use VK
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables
+    -> ;
++--------------------+
+| Tables_in_VK       |
++--------------------+
+| communities        |
+| communities_users  |
+| friendship         |
+| like_types         |
+| likes              |
+| likes_places       |
+| media              |
+| media_types        |
+| messages           |
+| posts              |
+| posts_likes_places |
+| posts_media        |
+| profiles           |
+| users              |
++--------------------+
+14 rows in set (0,07 sec)
+
+mysql> exit;
+Bye
+catetina@catetina-HP-Compaq-6510b-GR692EA-ACB:~$ mysqldump VK > vk.sql
+mysqldump: Got error: 1045: Access denied for user 'catetina'@'localhost' (using password: NO) when trying to connect
+catetina@catetina-HP-Compaq-6510b-GR692EA-ACB:~$ mysqldump -p VK > vk.sql
+Enter password: 
+mysqldump: Got error: 1045: Access denied for user 'catetina'@'localhost' (using password: YES) when trying to connect
+
