@@ -1,0 +1,125 @@
+
+
+mysql> select *, dayname (birthday)as dayname from profiles;
++-----+---------+------------+-------------+------------+--------------------+-----------+---------------------+---------------------+--------+-----------+
+| id  | user_id | first_name | last_name   | birthday   | city               | country   | created_at          | updated_at          | gender | dayname   |
++-----+---------+------------+-------------+------------+--------------------+-----------+---------------------+---------------------+--------+-----------+
+|   1 |       1 | Giovani    | Schuster    | 2001-10-19 | Lake Tyra          | 86325     | 1979-09-20 17:49:12 | 2021-07-09 09:09:22 | F      | Friday    |
+|   2 |       2 | Diego      | Stoltenberg | 1985-02-25 | Rickieport         | 975772614 | 2007-01-12 21:48:09 | 2021-07-09 09:09:22 | F      | Monday    |
+|   3 |       3 | Randall    | Sipes       | 2007-11-16 | Germainechester    | 7620      | 1974-05-15 09:40:05 | 2021-07-09 09:09:22 | F      | Friday    |
+|   4 |       4 | Marlon     | Berge       | 2002-08-27 | Millertown         |           | 2017-04-17 21:41:17 | 2021-07-09 09:09:22 | M      | Tuesday   |
+|   5 |       5 | Maximo     | Little      | 2010-09-18 | Tillmanfurt        | 7         | 1976-02-27 02:06:17 | 2021-07-09 09:09:22 | M      | Saturday  |
+|   6 |       6 | Rylee      | Howell      | 1994-10-09 | South Freda        | 226606    | 1974-11-08 10:46:17 | 2021-07-09 09:09:22 | M      | Sunday    |
+|   7 |       7 | Cyrus      | Hackett     | 1989-06-07 | South Daronside    | 97        | 2010-09-23 14:25:12 | 2021-07-09 09:09:22 | F      | Wednesday |
+|   8 |       8 | Nadia      | Cormier     | 1999-03-14 | Monahanborough     | 173283    | 1999-03-17 14:15:35 | 2021-07-09 09:09:22 | F      | Sunday    |
+|   9 |       9 | Yesenia    | Ankunding   | 1972-05-23 | New Ansel          |           | 1976-10-13 22:35:20 | 2021-07-09 09:09:22 | M      | Tuesday   |
+|  10 |      10 | General    | Osinski     | 1979-03-30 | Devonborough       | 4437145   | 1980-08-06 20:49:20 | 2021-07-09 09:09:22 | M      | Friday    |
+|  11 |      11 | Reilly     | Harvey      | 1997-04-10 | East Chaimstad     | 16        | 1985-05-19 15:22:52 | 2021-07-09 09:09:22 | M      | Thursday  |
+|  12 |      12 | Jarod      | Rau         | 2000-02-21 | North Reese        | 95        | 1999-01-03 15:38:51 | 2021-07-09 09:09:22 | M      | Monday    |
+|  13 |      13 | Josue      | McClure     | 1990-08-27 | South Marvinview   | 320794    | 2018-02-04 16:35:31 | 2021-07-09 09:09:22 | F      | Monday    |
+|  14 |      14 | Kira       | Reichel     | 1996-07-03 | North Zoie         | 599       | 1996-11-01 13:34:38 | 2021-07-09 09:09:22 | F      | Wednesday |
+|  15 |      15 | Ona        | Ullrich     | 1986-08-15 | Evieberg           | 7007      | 1999-10-22 13:37:29 | 2021-07-09 09:09:22 | F      | Friday    |
+|  16 |      16 | Jan        | Collier     | 2002-07-01 | South Javier       | 2143      | 2010-08-29 12:24:01 | 2021-07-09 09:09:22 | F      | Monday    |
+|  17 |      17 | Madie      | Gutmann     | 1990-01-21 | South Kimmouth     | 873       | 1977-07-05 06:07:40 | 2021-07-09 09:09:22 | M      | Sunday    |
+|  18 |      18 | Bret       | Dickinson   | 2014-08-07 | East Brennabury    | 211655    | 2002-10-10 03:46:41 | 2021-07-09 09:09:22 | F      | Thursday  |
+|  19 |      19 | Eloisa     | Rohan       | 1985-08-12 | Thielton           | 709258825 | 1992-07-22 15:01:08 | 2021-07-09 09:09:22 | M      | Monday    |
+|  20 |      20 | Emiliano   | Labadie     | 2005-03-13 | Monroehaven        | 254542    | 2010-07-06 23:41:37 | 2021-07-09 09:09:22 | M      | Sunday    |
+|  21 |      21 | Katheryn   | Orn         | 1987-11-14 | Gutkowskiview      | 19590     | 1975-12-26 18:26:57 | 2021-07-09 09:09:22 | F      | Saturday  |
+|  22 |      22 | Natalie    | Mitchell    | 2018-02-11 | Binsland           | 43384     | 2008-06-30 22:20:14 | 2021-07-09 09:09:22 | F      | Sunday    |
+|  23 |      23 | Denis      | Simonis     | 1999-12-12 | West Timothy       | 2416793   | 1973-10-08 18:01:37 | 2021-07-09 09:09:22 | F      | Sunday    |
+|  24 |      24 | Colby      | Rippin      | 1981-06-21 | Larueland          | 38        | 1994-10-24 13:33:51 | 2021-07-09 09:09:22 | M      | Sunday    |
+|  25 |      25 | Mariano    | Bayer       | 1993-04-11 | Predovichaven      | 28        | 1995-11-13 08:08:08 | 2021-07-09 09:09:22 | M      | Sunday    |
+|  26 |      26 | Mya        | Cummerata   | 2007-05-12 | West Emelieview    | 59        | 1985-03-14 12:40:42 | 2021-07-09 09:09:22 | F      | Saturday  |
+|  27 |      27 | Cynthia    | Hackett     | 1983-04-26 | North Leliaside    | 404       | 2010-12-21 15:31:51 | 2021-07-09 09:09:22 | M      | Tuesday   |
+|  28 |      28 | Fanny      | Towne       | 2000-09-26 | Connellyshire      | 3122      | 1999-08-23 19:31:58 | 2021-07-09 09:09:22 | F      | Tuesday   |
+|  29 |      29 | Jany       | Hills       | 2009-10-23 | Maudeburgh         | 4750304   | 1980-09-18 19:33:04 | 2021-07-09 09:09:22 | F      | Friday    |
+|  30 |      30 | Cordelia   | Harvey      | 2009-11-07 | East Ole           | 94688885  | 2003-04-26 06:55:04 | 2021-07-09 09:09:22 | F      | Saturday  |
+|  31 |      31 | Wilson     | Bartoletti  | 1996-04-30 | Lake Jillian       | 891       | 1979-07-22 15:11:05 | 2021-07-09 09:09:22 | F      | Tuesday   |
+|  32 |      32 | Marlin     | Schoen      | 2015-06-03 | East Judgeview     | 16156     | 1994-03-24 10:43:16 | 2021-07-09 09:09:22 | F      | Wednesday |
+|  33 |      33 | Rafael     | Gottlieb    | 2010-09-12 | Port River         | 442286906 | 1991-02-09 11:30:31 | 2021-07-09 09:09:22 | M      | Sunday    |
+|  34 |      34 | Eino       | Hilpert     | 1984-08-27 | Port Estell        | 167969    | 2003-12-07 03:30:32 | 2021-07-09 09:09:22 | M      | Monday    |
+|  35 |      35 | Paolo      | Beatty      | 1976-06-01 | West Geraldfurt    | 68690479  | 2021-01-30 20:20:20 | 2021-07-09 09:09:22 | F      | Tuesday   |
+|  36 |      36 | Teresa     | Strosin     | 2014-10-02 | Aurelioshire       | 694178    | 1972-08-30 17:09:51 | 2021-07-09 09:09:22 | M      | Thursday  |
+|  37 |      37 | Rosella    | Hermann     | 2005-01-10 | Reedtown           | 128430570 | 1979-04-16 14:32:49 | 2021-07-09 09:09:22 | F      | Monday    |
+|  38 |      38 | Kathryn    | Crist       | 1972-07-06 | Bridgettechester   |           | 2002-09-04 21:42:51 | 2021-07-09 09:09:22 | F      | Thursday  |
+|  39 |      39 | Esperanza  | Stracke     | 1977-03-12 | New Marisolshire   | 585008906 | 1993-03-03 06:19:49 | 2021-07-09 09:09:22 | M      | Saturday  |
+|  40 |      40 | Tatum      | Abbott      | 2009-12-01 | Trompmouth         | 28        | 2013-04-24 17:15:19 | 2021-07-09 09:09:22 | M      | Tuesday   |
+|  41 |      41 | Nigel      | Lakin       | 2002-12-12 | New Adalbertoside  | 40338     | 2001-01-15 10:00:50 | 2021-07-09 09:09:22 | F      | Thursday  |
+|  42 |      42 | Skye       | Sipes       | 1997-06-05 | Hauckmouth         | 1268      | 2014-10-13 10:35:27 | 2021-07-09 09:09:22 | M      | Thursday  |
+|  43 |      43 | Clare      | Simonis     | 1982-06-12 | Lake Godfreymouth  | 58        | 1990-03-22 06:40:36 | 2021-07-09 09:09:22 | F      | Saturday  |
+|  44 |      44 | Warren     | Little      | 1992-12-31 | North Timothyview  | 33352     | 2007-05-24 11:50:51 | 2021-07-09 09:09:22 | F      | Thursday  |
+|  45 |      45 | Oran       | Padberg     | 2017-04-08 | South Alycia       | 8846834   | 1996-04-21 08:25:33 | 2021-07-09 09:09:22 | M      | Saturday  |
+|  46 |      46 | Vincenzo   | Flatley     | 2014-02-14 | Eichmannshire      | 271982    | 1986-12-04 02:58:32 | 2021-07-09 09:09:22 | M      | Friday    |
+|  47 |      47 | Alexane    | Cremin      | 2000-08-13 | New Alessiamouth   | 339285    | 1997-07-27 23:33:49 | 2021-07-09 09:09:22 | F      | Sunday    |
+|  48 |      48 | Delaney    | Schneider   | 1980-07-11 | Schuppemouth       | 5905      | 2018-02-27 15:53:23 | 2021-07-09 09:09:22 | M      | Friday    |
+|  49 |      49 | Casper     | Schuster    | 1983-11-16 | Marjoriemouth      | 34322     | 2011-04-22 04:09:11 | 2021-07-09 09:09:22 | F      | Wednesday |
+|  50 |      50 | Antoinette | Schinner    | 1996-03-14 | East Karlie        | 9         | 1977-02-05 20:48:45 | 2021-07-09 09:09:22 | F      | Thursday  |
+|  51 |      51 | Althea     | Pollich     | 1977-02-07 | East Lolaview      | 2383876   | 2009-09-13 14:22:47 | 2021-07-09 09:09:22 | F      | Monday    |
+|  52 |      52 | Coleman    | Wiegand     | 1994-10-08 | Alessialand        | 927       | 1973-04-13 12:39:44 | 2021-07-09 09:09:22 | M      | Saturday  |
+|  53 |      53 | Reid       | Sporer      | 1992-10-04 | Robertschester     | 768463909 | 2020-03-28 02:29:04 | 2021-07-09 09:09:22 | F      | Sunday    |
+|  54 |      54 | Ricardo    | Kemmer      | 1974-02-04 | North Efrainfort   | 5317269   | 2014-02-15 20:02:31 | 2021-07-09 09:09:22 | M      | Monday    |
+|  55 |      55 | Margot     | Schuster    | 1994-09-29 | Aryannaborough     | 23        | 1985-12-14 04:49:02 | 2021-07-09 09:09:22 | M      | Thursday  |
+|  56 |      56 | Electa     | Bernier     | 1987-06-02 | Alainaburgh        | 3673      | 2016-03-20 17:47:03 | 2021-07-09 09:09:22 | F      | Tuesday   |
+|  57 |      57 | Erna       | Murazik     | 2008-08-30 | Ilaborough         | 8399      | 2013-10-14 13:33:24 | 2021-07-09 09:09:22 | F      | Saturday  |
+|  58 |      58 | Pearline   | Cartwright  | 1973-12-03 | Burdetteside       | 726773366 | 2019-08-04 16:18:31 | 2021-07-09 09:09:22 | F      | Monday    |
+|  59 |      59 | Aditya     | Gibson      | 2004-07-01 | East Aubrey        | 8         | 1989-02-15 10:25:03 | 2021-07-09 09:09:22 | F      | Thursday  |
+|  60 |      60 | Darlene    | Hayes       | 1994-03-21 | South Jaqueline    | 800552    | 2006-09-30 20:30:12 | 2021-07-09 09:09:22 | M      | Monday    |
+|  61 |      61 | Esmeralda  | Miller      | 2011-09-26 | Krisberg           | 72492     | 1983-04-18 01:31:29 | 2021-07-09 09:09:22 | F      | Monday    |
+|  62 |      62 | Remington  | Smitham     | 2016-11-03 | New Samirmouth     | 6587887   | 1995-06-04 14:44:41 | 2021-07-09 09:09:22 | F      | Thursday  |
+|  63 |      63 | Rosanna    | Raynor      | 1976-12-18 | West Neha          | 30655439  | 2003-06-13 21:40:58 | 2021-07-09 09:09:22 | F      | Saturday  |
+|  64 |      64 | Kira       | Brekke      | 1996-10-13 | Macejkovicchester  |           | 1987-07-03 12:31:49 | 2021-07-09 09:09:22 | M      | Sunday    |
+|  65 |      65 | Muhammad   | Doyle       | 2009-03-14 | North Maudeville   | 41894     | 1990-02-20 06:38:13 | 2021-07-09 09:09:22 | F      | Saturday  |
+|  66 |      66 | Alexander  | Zieme       | 1982-09-13 | Turcottehaven      |           | 1987-07-11 05:23:34 | 2021-07-09 09:09:22 | M      | Monday    |
+|  67 |      67 | Norbert    | Johnston    | 1997-10-25 | Ortizport          |           | 2010-07-20 12:20:42 | 2021-07-09 09:09:22 | M      | Saturday  |
+|  68 |      68 | Toni       | Reichel     | 1984-10-21 | Langoshchester     | 567464    | 1982-01-14 13:06:05 | 2021-07-09 09:09:22 | M      | Sunday    |
+|  69 |      69 | Danial     | Spencer     | 1997-01-04 | Dickensshire       | 312666    | 2008-04-29 15:34:48 | 2021-07-09 09:09:22 | M      | Saturday  |
+|  70 |      70 | Robb       | Blick       | 2007-09-06 | New Ambrosehaven   |           | 2010-02-26 01:40:10 | 2021-07-09 09:09:22 | M      | Thursday  |
+|  71 |      71 | Tad        | Nitzsche    | 1999-07-05 | Jacobiberg         | 78        | 2000-06-12 07:11:06 | 2021-07-09 09:09:22 | F      | Monday    |
+|  72 |      72 | Else       | Dietrich    | 1971-10-29 | Port Jonatan       | 93814     | 1983-10-13 05:13:03 | 2021-07-09 09:09:22 | M      | Friday    |
+|  73 |      73 | Friedrich  | Ward        | 2020-10-21 | North Destanytown  | 877176    | 1979-03-23 01:36:23 | 2021-07-09 09:09:22 | M      | Wednesday |
+|  74 |      74 | Jackie     | Haley       | 1997-06-03 | New Nakia          | 590661    | 1999-01-06 17:30:46 | 2021-07-09 09:09:22 | M      | Tuesday   |
+|  75 |      75 | Adolfo     | Gottlieb    | 1978-02-20 | Thomasburgh        |           | 2017-07-24 08:49:55 | 2021-07-09 09:09:22 | M      | Monday    |
+|  76 |      76 | Pablo      | Jenkins     | 1991-04-27 | North Beverlyview  | 742       | 1978-08-27 05:31:34 | 2021-07-09 09:09:22 | M      | Saturday  |
+|  77 |      77 | Keenan     | Rutherford  | 2004-09-27 | East Jody          | 28        | 2020-07-19 20:30:13 | 2021-07-09 09:09:22 | F      | Monday    |
+|  78 |      78 | Elvis      | Romaguera   | 1991-07-28 | Lake Malliechester | 12961928  | 1978-12-18 16:51:42 | 2021-07-09 09:09:22 | M      | Sunday    |
+|  79 |      79 | Shawna     | Stanton     | 1973-07-14 | South Stevefurt    |           | 2002-12-02 02:22:54 | 2021-07-09 09:09:22 | M      | Saturday  |
+|  80 |      80 | Teagan     | Kunze       | 2000-12-28 | Smithview          | 2         | 2019-07-30 22:50:27 | 2021-07-09 09:09:22 | F      | Thursday  |
+|  81 |      81 | Albin      | Frami       | 1981-10-31 | New Marcelino      | 5         | 1999-12-14 05:14:01 | 2021-07-09 09:09:22 | M      | Saturday  |
+|  82 |      82 | Emerald    | Lebsack     | 1971-10-27 | Bartolettimouth    | 668299434 | 1984-04-20 18:09:59 | 2021-07-09 09:09:22 | F      | Wednesday |
+|  83 |      83 | Rollin     | Kilback     | 2005-06-11 | Landenton          | 8784566   | 1986-11-07 11:57:10 | 2021-07-09 09:09:22 | M      | Saturday  |
+|  84 |      84 | Missouri   | Bosco       | 1974-03-03 | Brekkeshire        | 819921    | 1982-08-10 09:55:13 | 2021-07-09 09:09:22 | F      | Sunday    |
+|  85 |      85 | Gracie     | Larkin      | 1978-09-28 | New Elouiseberg    | 1         | 2013-02-18 23:35:02 | 2021-07-09 09:09:22 | F      | Thursday  |
+|  86 |      86 | Kassandra  | Breitenberg | 1974-12-16 | Eliseoland         | 31168     | 1973-10-03 17:10:27 | 2021-07-09 09:09:22 | F      | Monday    |
+|  87 |      87 | Cecil      | Walsh       | 2015-01-11 | South Madelynfurt  | 911       | 1997-04-17 20:51:13 | 2021-07-09 09:09:22 | F      | Sunday    |
+|  88 |      88 | Gianni     | Kessler     | 2017-10-03 | Watersmouth        | 949281    | 1991-10-21 20:41:15 | 2021-07-09 09:09:22 | M      | Tuesday   |
+|  89 |      89 | Liam       | Gutkowski   | 2011-03-03 | East Tyshawnmouth  | 56165165  | 1991-01-06 04:08:43 | 2021-07-09 09:09:22 | F      | Thursday  |
+|  90 |      90 | Garret     | Greenholt   | 2011-12-17 | North Luisafort    | 51501336  | 1983-11-19 22:34:35 | 2021-07-09 09:09:22 | M      | Saturday  |
+|  91 |      91 | Arvilla    | Corwin      | 2014-02-22 | Lake Bertrandmouth | 521218330 | 2005-10-20 21:24:25 | 2021-07-09 09:09:22 | F      | Saturday  |
+|  92 |      92 | Heath      | Rohan       | 1978-04-13 | Port Johnathanbury | 99        | 2020-07-05 13:19:53 | 2021-07-09 09:09:22 | M      | Thursday  |
+|  93 |      93 | Benedict   | Stracke     | 1979-09-24 | Lake Donaldborough | 948517190 | 2004-08-30 10:18:41 | 2021-07-09 09:09:22 | F      | Monday    |
+|  94 |      94 | Dwight     | Fisher      | 2018-09-13 | Vandervortchester  | 4656      | 1990-01-22 14:32:38 | 2021-07-09 09:09:22 | F      | Thursday  |
+|  95 |      95 | Marlon     | McLaughlin  | 2011-11-20 | East Molliebury    | 91706     | 1993-10-16 13:17:08 | 2021-07-09 09:09:22 | M      | Sunday    |
+|  96 |      96 | Demond     | Smith       | 2009-07-12 | Port Reneeshire    | 3638      | 2008-09-04 14:49:22 | 2021-07-09 09:09:22 | M      | Sunday    |
+|  97 |      97 | Bernadine  | Torp        | 1983-11-27 | East Madelynnville | 142       | 1977-12-01 05:50:48 | 2021-07-09 09:09:22 | F      | Sunday    |
+|  98 |      98 | Blair      | Koch        | 1990-01-24 | Schambergerview    | 4404      | 1994-12-30 10:38:34 | 2021-07-09 09:09:22 | F      | Wednesday |
+|  99 |      99 | Earline    | Lakin       | 2001-05-28 | New Normahaven     | 1         | 1994-01-04 18:15:07 | 2021-07-09 09:09:22 | M      | Monday    |
+| 100 |     100 | Kris       | Rodriguez   | 1976-03-30 | Kyliehaven         | 5632464   | 2017-07-27 13:18:28 | 2021-07-09 09:09:22 | F      | Tuesday   |
++-----+---------+------------+-------------+------------+--------------------+-----------+---------------------+---------------------+--------+-----------+
+100 rows in set (0,00 sec)
+
+mysql> select count(*), dayname (birthday)as dayname from profiles group by dayname;
++----------+-----------+
+| count(*) | dayname   |
++----------+-----------+
+|        8 | Friday    |
+|       19 | Monday    |
+|       11 | Tuesday   |
+|       19 | Saturday  |
+|       19 | Sunday    |
+|        7 | Wednesday |
+|       17 | Thursday  |
++----------+-----------+
+7 rows in set (0,07 sec)
+
+
+

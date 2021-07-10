@@ -1,0 +1,55 @@
+
+mysql> create table val (
+    -> value int
+    -> );
+Query OK, 0 rows affected (0,58 sec)
+
+mysql> insert into val
+    -> values (1),
+    ->         (2),
+    ->         (3),
+    ->         (4),
+    ->         (5);
+Query OK, 5 rows affected (0,11 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from val;
++-------+
+| value |
++-------+
+|     1 |
+|     2 |
+|     3 |
+|     4 |
+|     5 |
++-------+
+5 rows in set (0,00 sec)
+
+mysql> select exp(sum(log(value))) from val;
++----------------------+
+| exp(sum(log(value))) |
++----------------------+
+|   119.99999999999997 |
++----------------------+
+1 row in set (0,10 sec)
+
+mysql> select floor (exp(sum(log(value)))) from val;
++------------------------------+
+| floor (exp(sum(log(value)))) |
++------------------------------+
+|                          119 |
++------------------------------+
+1 row in set (0,01 sec)
+
+mysql> select round(exp(sum(log(value)))) from val;
++-----------------------------+
+| round(exp(sum(log(value)))) |
++-----------------------------+
+|                         120 |
++-----------------------------+
+1 row in set (0,05 sec)
+
+mysql> 
+
+
+

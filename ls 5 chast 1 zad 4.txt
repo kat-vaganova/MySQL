@@ -1,0 +1,38 @@
+
+
+mysql> create table birthdays (
+    -> id serial,
+    ->  birthday varchar(100)
+    ->  );
+Query OK, 0 rows affected (1,42 sec)
+
+mysql>  
+mysql>  insert into birthdays 
+    ->  value  (null, 'january'),
+    ->  (null, 'august'),
+    ->  (null, 'march'),
+    ->  (null, 'april'),
+    ->  (null, 'may'),
+    ->  (null, 'june'),
+    ->  (null, 'july'),
+    ->  (null, 'august'),
+    ->  (null, 'september'),
+    ->  (null, 'may'),
+    ->  (null, 'november'),
+    ->  (null, 'decemder');
+Query OK, 12 rows affected (0,14 sec)
+Records: 12  Duplicates: 0  Warnings: 0
+
+mysql>  select * from birthdays 
+    ->  where birthday in ('may', 'august');
++----+----------+
+| id | birthday |
++----+----------+
+|  2 | august   |
+|  5 | may      |
+|  8 | august   |
+| 10 | may      |
++----+----------+
+4 rows in set (0,00 sec)
+
+
