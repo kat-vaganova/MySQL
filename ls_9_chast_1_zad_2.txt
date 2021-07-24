@@ -1,0 +1,59 @@
+
+mysql> select id, name, catalog_id from products;
++----+----------+------------+
+| id | name     | catalog_id |
++----+----------+------------+
+|  1 | esse     |          1 |
+|  2 | voluptas |          2 |
+|  3 | sit      |          3 |
+|  4 | maxime   |          4 |
+|  5 | delectus |          5 |
+|  6 | modi     |          1 |
+|  7 | vel      |          2 |
+|  8 | hic      |          2 |
+|  9 | cumque   |          5 |
+| 10 | rerum    |          5 |
++----+----------+------------+
+10 rows in set (0,00 sec)
+
+mysql> select * from catalogs;
++----+------------+
+| id | name       |
++----+------------+
+|  1 | rerum      |
+|  2 | voluptatem |
+|  3 | et         |
+|  4 | natus      |
+|  5 | molestias  |
++----+------------+
+5 rows in set (0,01 sec)
+
+mysql> create view p_and_c as
+    ->     select
+    ->     p.name as product,
+    ->     c.name as catalog
+    -> from
+    ->     products as p
+    ->     left join
+    ->     catalogs as c
+    ->     on (p.catalog_id = c.id);
+Query OK, 0 rows affected (0,16 sec)
+
+mysql> select * from p_and_c;
++----------+------------+
+| product  | catalog    |
++----------+------------+
+| esse     | rerum      |
+| voluptas | voluptatem |
+| sit      | et         |
+| maxime   | natus      |
+| delectus | molestias  |
+| modi     | rerum      |
+| vel      | voluptatem |
+| hic      | voluptatem |
+| cumque   | molestias  |
+| rerum    | molestias  |
++----------+------------+
+10 rows in set (0,00 sec)
+
+
