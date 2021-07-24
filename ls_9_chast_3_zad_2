@@ -1,0 +1,39 @@
+mysql> create trigger products_tigger  before insert on products
+    ->     for each row
+    ->       begin
+    ->       if new.name is null and new.description is null 
+    ->       then  
+    ->       signal sqlstate '45000'
+    ->       set message_text = 'Mistake';
+    ->       end if;
+    ->      end//
+Query OK, 0 rows affected (0,16 sec)
+
+mysql>   insert into products (name, description, price)
+    ->       values  ('monitor', 'samsung', 25000.00)//
+Query OK, 1 row affected (0,08 sec)
+
+mysql>       insert into products (name, description, price)
+    ->       values  (null, 'samsung', 25000.00)//
+Query OK, 1 row affected (0,06 sec)
+
+mysql> insert into products (name, description, price)
+    ->       values  ('monitor', null, 25000.00)//
+Query OK, 1 row affected (0,08 sec)
+
+mysql> insert into products (name, description, price)
+    ->        values  (null, null, 25000.00)//
+ERROR 1644 (45000): Mistake
+
+mysql> select name, description, price from products where price = 25000.00//
++---------+-------------+----------+
+| name    | description | price    |
++---------+-------------+----------+
+| monitor | samsung     | 25000.00 |
+| NULL    | samsung     | 25000.00 |
+| monitor | NULL        | 25000.00 |
++---------+-------------+----------+
+3 rows in set (0,00 sec)
+
+mysql> 
+
