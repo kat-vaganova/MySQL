@@ -1,0 +1,60 @@
+mysql> create table users(
+    ->  id serial,
+    ->  name varchar(100),
+    ->  created_at varchar(100),
+    ->  updated_at varchar(100)
+    ->  );
+Query OK, 0 rows affected (1,35 sec)
+
+mysql> describe users;
++------------+-----------------+------+-----+---------+----------------+
+| Field      | Type            | Null | Key | Default | Extra          |
++------------+-----------------+------+-----+---------+----------------+
+| id         | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(100)    | YES  |     | NULL    |                |
+| created_at | varchar(100)    | YES  |     | NULL    |                |
+| updated_at | varchar(100)    | YES  |     | NULL    |                |
++------------+-----------------+------+-----+---------+----------------+
+4 rows in set (0,01 sec)
+
+mysql> insert into users 
+    -> values (null, 'Ivan', '20.10.2017 8:10', '20.10.2017 8:10'
+    -> );
+Query OK, 1 row affected (0,12 sec)
+
+mysql> select * from users;
++----+------+-----------------+-----------------+
+| id | name | created_at      | updated_at      |
++----+------+-----------------+-----------------+
+|  1 | Ivan | 20.10.2017 8:10 | 20.10.2017 8:10 |
++----+------+-----------------+-----------------+
+1 row in set (0,00 sec)
+
+mysql> alter table users
+    -> add created_at_dt datetime,  add updated_at_dt datetime;
+Query OK, 0 rows affected (0,44 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update users
+    -> set created_at_dt = str_to_date(created_at, '%d.%m.%Y %h:%i'),
+    ->     updated_at_dt = str_to_date(updated_at, '%d.%m.%Y %h:%i');
+Query OK, 1 row affected (0,10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> alter table users 
+    -> drop created_at, drop updated_at,
+    -> change created_at_dt created_at datetime,
+    -> rename column updated_at_dt to updated_at;
+Query OK, 0 rows affected (1,74 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from users;
++----+------+---------------------+---------------------+
+| id | name | created_at          | updated_at          |
++----+------+---------------------+---------------------+
+|  1 | Ivan | 2017-10-20 08:10:00 | 2017-10-20 08:10:00 |
++----+------+---------------------+---------------------+
+1 row in set (0,00 sec)
+
+mysql> 
+

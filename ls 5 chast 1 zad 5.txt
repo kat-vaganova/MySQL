@@ -1,0 +1,25 @@
+mysql> select * from catalogs;
++----+------------+
+| id | name       |
++----+------------+
+|  1 | rerum      |
+|  2 | voluptatem |
+|  3 | et         |
+|  4 | natus      |
+|  5 | molestias  |
++----+------------+
+5 rows in set (0,03 sec)
+
+mysql> select * from catalogs
+    -> where id in(5, 1, 2) order by field(id, 5, 1, 2); 
++----+------------+
+| id | name       |
++----+------------+
+|  5 | molestias  |
+|  1 | rerum      |
+|  2 | voluptatem |
++----+------------+
+3 rows in set (0,08 sec)
+
+
+
