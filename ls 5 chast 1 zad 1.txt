@@ -1,0 +1,36 @@
+mysql> create table users(
+    -> id serial,
+    ->  name varchar(100) 
+    -> created_at datetime DEFAULT current_timestamp,
+    -> updated_at datetime DEFAULT current_timestamp ON UPDATE current_timestamp;
+    -> );
+Query OK, 0 rows affected (1,15 sec)
+
+mysql> describe users;
++------------+-----------------+------+-----+-------------------+-----------------------------------------------+
+| Field      | Type            | Null | Key | Default           | Extra                                         |
++------------+-----------------+------+-----+-------------------+-----------------------------------------------+
+| id         | bigint unsigned | NO   | PRI | NULL              | auto_increment                                |
+| name       | varchar(100)    | YES  |     | NULL              |                                               |
+| created_at | datetime        | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED                             |
+| updated_at | datetime        | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |
++------------+-----------------+------+-----+-------------------+-----------------------------------------------+
+4 rows in set (0,00 sec)
+
+mysql> insert into users ( id, name, created_at, updated_at) 
+    -> values (null, 'Ivan', now(),now());
+    -> values (null, 'Pavel', now(),now());
+Query OK, 2 row affected (0,11 sec)
+
+mysql> select * from users;
++----+-------+---------------------+---------------------+
+| id | name  | created_at          | updated_at          |
++----+-------+---------------------+---------------------+
+|  1 | Ivan  | 2021-07-08 11:56:37 | 2021-07-08 11:56:37 |
+|  2 | Pavel | 2021-07-08 11:56:37 | 2021-07-08 11:56:37 |
++----+-------+---------------------+---------------------+
+2 rows in set (0,00 sec)
+
+
+
+

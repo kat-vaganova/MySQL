@@ -1,0 +1,93 @@
+-- к сожалению не нашла вариантов как объединить триггеры.
+
+mysql>  create table logs (
+    ->        id int not null,
+    ->        name_table varchar(100),
+    ->        name_from_table varchar(255),
+    ->        created_at datetime not null,
+    ->        id_identificate bigint not null     
+    ->       ) comment = 'logs' engine =archive;
+Query OK, 0 rows affected (0,17 sec)
+
+mysql> create trigger t_logs_1 after insert on products
+    ->     for each row
+    ->     begin 
+    ->     insert into logs 
+    ->     values (null, 'products', NEW.name, new.created_at, new.id);
+    ->     end//
+Query OK, 0 rows affected (0,24 sec)
+
+mysql>     
+mysql>     create trigger t_logs_2 after insert on users
+    ->     for each row
+    ->     begin 
+    ->     insert into logs 
+    ->     values (null, 'users', NEW.name, new.created_at, new.id);
+    ->     end//
+Query OK, 0 rows affected (0,40 sec)
+
+mysql>     create trigger t_logs_4 after update on products
+    ->     for each row
+    ->     begin 
+    ->     insert into logs 
+    ->     values (null, 'products', NEW.name, new.created_at, new.id);
+    ->     end//
+Query OK, 0 rows affected (0,17 sec)
+
+mysql>     
+mysql>     create trigger t_logs_5 after update on users
+    ->     for each row
+    ->     begin 
+    ->     insert into logs 
+    ->     values (null, 'users', NEW.name, new.created_at, new.id);
+    ->     end//
+Query OK, 0 rows affected (0,14 sec)
+
+mysql> create trigger t_logs_6 after update on catalogs
+    ->     for each row
+    ->     begin 
+    ->     insert into logs 
+    ->     values (null, 'catalogs', NEW.name, new.created_at, new.id);
+    ->     end//
+Query OK, 0 rows affected (0,14 sec)
+
+mysql>      create trigger t_logs_3 after insert on catalogs
+    ->     for each row
+    ->     begin 
+    ->     insert into logs 
+    ->     values (null, 'catalogs', NEW.name, new.created_at, new.id);
+    ->     end//
+Query OK, 0 rows affected (0,09 sec)
+
+mysql>  update users 
+    ->      set name = 'Masha'//
+Query OK, 4 rows affected (0,11 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> select * from users//
++----+-------+-------------+---------------------+---------------------+
+| id | name  | birthday_at | created_at          | updated_at          |
++----+-------+-------------+---------------------+---------------------+
+|  1 | Masha | 2004-03-17  | 1975-06-15 23:27:57 | 2021-07-25 20:47:41 |
+|  2 | Masha | 1979-01-12  | 2006-10-16 00:46:00 | 2021-07-25 20:47:41 |
+|  3 | Masha | 1975-11-21  | 2007-02-23 17:48:54 | 2021-07-25 20:47:41 |
+|  4 | Masha | 1974-05-29  | 2000-06-05 18:36:58 | 2021-07-25 20:47:41 |
++----+-------+-------------+---------------------+---------------------+
+4 rows in set (0,00 sec)
+
+mysql>    insert into products (name, description, price)
+    ->       values  ('laptop', 'logitech', 60000.00)//
+Query OK, 1 row affected (0,07 sec)
+
+mysql> select id, name,price from products order by id desc limit 1//
++----+--------+----------+
+| id | name   | price    |
++----+--------+----------+
+| 23 | laptop | 60000.00 |
++----+--------+----------+
+1 row in set (0,00 sec)
+
+mysql> 
+
+
+

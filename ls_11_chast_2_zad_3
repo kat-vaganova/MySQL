@@ -1,0 +1,33 @@
+>  use catalogs
+switched to db catalogs
+>      db.catalogs.insert({table: 'catalogs'})
+WriteResult({ "nInserted" : 1 })
+>   db.catalogs.update({table: 'catalogs'}, {$set: {name: ['Процессоры', 'Мат.платы', 'Видеокарты']}})    
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.catalogs.find()
+{ "_id" : ObjectId("60fdcf2ebb80e71eeebb876a"), "name" : "Процессоры" }
+{ "_id" : ObjectId("60fdcf2ebb80e71eeebb876b"), "name" : "Мат.платы" }
+{ "_id" : ObjectId("60fdcf2ebb80e71eeebb876c"), "name" : "Видеокарты" }
+{ "_id" : ObjectId("60fde390bb80e71eeebb8773"), "table" : "catalogs", "name" : [ "Процессоры", "Мат.платы", "Видеокарты" ] }
+> 
+> 
+> use products  
+switched to db products
+> db.products.insert({name: 'Intel Core i3-8100'})
+WriteResult({ "nInserted" : 1 })
+>   db.products.update({name: 'Intel Core i3-8100'}, {$set: {description: ['Процессор для настольных ПК'], price: ['8000.00'], catalog_id: ['Процессоры'], created_at: ['new Date()'], updated_at: ['new Date()']}}) 
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>  db.products.insert({name: 'AMD FX-8320'})
+WriteResult({ "nInserted" : 1 })
+>  db.products.update({name: 'AMD FX-8320'}, {$set: {description: ['Процессор для настольных ПК'], price: ['4000.00'], catalog_id: ['Процессоры'], created_at: ['new Date()'], updated_at: ['new Date()']}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.products.insert({name: 'AMD FX-8320E'})
+WriteResult({ "nInserted" : 1 })
+>   db.products.update({name: 'AMD FX-8320E'}, {$set: {description: ['Процессор для настольных ПК'], price: ['4500.00'], catalog_id: ['Процессоры'], created_at: ['new Date()'], updated_at: ['new Date()']}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.products.find()
+{ "_id" : ObjectId("60fde189bb80e71eeebb8770"), "name" : "Intel Core i3-8100", "catalog_id" : [ "Процессоры" ], "created_at" : [ "new Date()" ], "description" : [ "Процессор для настольных ПК" ], "price" : [ "8000.00" ], "updated_at" : [ "new Date()" ] }
+{ "_id" : ObjectId("60fde1afbb80e71eeebb8771"), "name" : "AMD FX-8320", "catalog_id" : [ "Процессоры" ], "created_at" : [ "new Date()" ], "description" : [ "Процессор для настольных ПК" ], "price" : [ "4000.00" ], "updated_at" : [ "new Date()" ] }
+{ "_id" : ObjectId("60fde291bb80e71eeebb8772"), "name" : "AMD FX-8320E", "catalog_id" : [ "Процессоры" ], "created_at" : [ "new Date()" ], "description" : [ "Процессор для настольных ПК" ], "price" : [ "4500.00" ], "updated_at" : [ "new Date()" ] }
+
+

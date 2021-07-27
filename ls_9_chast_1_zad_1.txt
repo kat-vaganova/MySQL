@@ -1,0 +1,115 @@
+mysql> use Shop;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++----------------------+
+| Tables_in_Shop       |
++----------------------+
+| catalogs             |
+| discounts            |
+| discounts_orders     |
+| discounts_products   |
+| order_products       |
+| orders               |
+| products             |
+| storehouses          |
+| storehouses_products |
+| users                |
++----------------------+
+10 rows in set (0,00 sec)
+
+mysql> select * from users;
++----+----------------+-------------+---------------------+---------------------+
+| id | name           | birthday_at | created_at          | update_at           |
++----+----------------+-------------+---------------------+---------------------+
+|  1 | culpa          | 2004-03-17  | 2005-09-24 01:10:12 | 1978-07-17 02:20:39 |
+|  2 | sed            | 1979-01-12  | 1980-04-15 01:35:35 | 1984-12-12 14:59:31 |
+|  3 | debitis        | 1975-11-21  | 2007-02-23 17:48:54 | 2012-07-09 17:05:39 |
+|  4 | labore         | 1974-05-29  | 2000-06-05 18:36:58 | 1975-06-15 23:27:57 |
+|  5 | exercitationem | 2008-12-27  | 1993-07-28 09:10:24 | 1987-07-31 05:51:27 |
+|  6 | non            | 2018-09-05  | 2006-10-16 00:46:00 | 2019-07-12 12:52:11 |
+|  7 | error          | 1993-05-16  | 2004-12-09 05:56:36 | 1976-11-14 01:43:57 |
+|  8 | aut            | 2002-07-16  | 2019-02-26 08:14:49 | 1971-05-20 20:01:35 |
+|  9 | beatae         | 2001-07-30  | 1970-05-24 03:12:02 | 2011-04-11 22:21:25 |
+| 10 | quia           | 2006-09-29  | 2014-09-26 04:16:09 | 1987-07-03 22:03:34 |
++----+----------------+-------------+---------------------+---------------------+
+10 rows in set (0,30 sec)
+
+
+mysql> use example
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables
+    -> ;
++-------------------+
+| Tables_in_example |
++-------------------+
+| accounts          |
+| birthdays         |
+| cities            |
+| distances         |
+| distances1        |
+| flights_from      |
+| flights_to        |
+| tbl1              |
+| tbl2              |
+| user              |
+| users             |
++-------------------+
+11 rows in set (0,01 sec)
+
+mysql> select * from users;
++----+------+---------------------+---------------------+
+| id | name | created_at          | updated_at          |
++----+------+---------------------+---------------------+
+|  1 | Ivan | 2017-10-20 08:10:00 | 2017-10-20 08:10:00 |
++----+------+---------------------+---------------------+
+1 row in set (0,06 sec)
+
+mysql> start transaction;
+Query OK, 0 rows affected (0,00 sec)
+
+mysql> insert into example.users (name, created_at, updated_at) select  name, created_at, update_at  from Shop.users where id=1;
+Query OK, 1 row affected (0,01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> select * from users;
++----+-------+---------------------+---------------------+
+| id | name  | created_at          | updated_at          |
++----+-------+---------------------+---------------------+
+|  1 | Ivan  | 2017-10-20 08:10:00 | 2017-10-20 08:10:00 |
+|  2 | culpa | 2005-09-24 01:10:12 | 1978-07-17 02:20:39 |
++----+-------+---------------------+---------------------+
+2 rows in set (0,00 sec)
+
+ -- esli nuzhno udalyaem stroku iz tablitsi Shop.users
+
+
+mysql> delete from Shop.users where id = 1;
+Query OK, 1 row affected (0,08 sec)
+
+mysql> select * from users;
++----+----------------+-------------+---------------------+---------------------+
+| id | name           | birthday_at | created_at          | update_at           |
++----+----------------+-------------+---------------------+---------------------+
+|  2 | sed            | 1979-01-12  | 2006-10-16 00:46:00 | 2019-02-26 08:14:49 |
+|  3 | debitis        | 1975-11-21  | 2007-02-23 17:48:54 | 2012-07-09 17:05:39 |
+|  4 | labore         | 1974-05-29  | 2000-06-05 18:36:58 | 1975-06-15 23:27:57 |
+|  5 | exercitationem | 2008-12-27  | 1993-07-28 09:10:24 | 1987-07-31 05:51:27 |
+|  6 | non            | 2018-09-05  | 2006-10-16 00:46:00 | 2019-07-12 12:52:11 |
+|  7 | error          | 1993-05-16  | 2004-12-09 05:56:36 | 1976-11-14 01:43:57 |
+|  8 | aut            | 2002-07-16  | 2019-02-26 08:14:49 | 1971-05-20 20:01:35 |
+|  9 | beatae         | 2001-07-30  | 1970-05-24 03:12:02 | 2011-04-11 22:21:25 |
+| 10 | quia           | 2006-09-29  | 2014-09-26 04:16:09 | 1987-07-03 22:03:34 |
++----+----------------+-----
+
+mysql> commit;
+Query OK, 0 rows affected (0,00 sec)
+
+
+
+
