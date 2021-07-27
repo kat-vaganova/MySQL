@@ -1,0 +1,27 @@
+
+mysql> CREATE INDEX profiles_birthday_idx ON profiles(first_name, last_name, birthday);
+Query OK, 0 rows affected (0,40 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> create index likes_from_user_idx on likes (from_user_id);
+Query OK, 0 rows affected (0,34 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from profiles where first_name = 'Elise' and last_name = 'Murphy' and birthday = '2011-03-20';
++----+---------+------------+-----------+------------+--------------+---------+---------------------+---------------------+--------+
+| id | user_id | first_name | last_name | birthday   | city         | country | created_at          | updated_at          | gender |
++----+---------+------------+-----------+------------+--------------+---------+---------------------+---------------------+--------+
+|  4 |       4 | Elise      | Murphy    | 2011-03-20 | Homenickstad | 2108    | 1974-10-14 17:50:37 | 2021-07-03 20:10:13 | M      |
++----+---------+------------+-----------+------------+--------------+---------+---------------------+---------------------+--------+
+1 row in set (0,00 sec)
+
+mysql> explain select * from profiles where first_name = 'Elise' and last_name = 'Murphy' and birthday = '2011-03-20';
++----+-------------+----------+------------+------+-----------------------+-----------------------+---------+-------------------+------+----------+-------+
+| id | select_type | table    | partitions | type | possible_keys         | key                   | key_len | ref               | rows | filtered | Extra |
++----+-------------+----------+------------+------+-----------------------+-----------------------+---------+-------------------+------+----------+-------+
+|  1 | SIMPLE      | profiles | NULL       | ref  | profiles_birthday_idx | profiles_birthday_idx | 807     | const,const,const |    1 |   100.00 | NULL  |
++----+-------------+----------+------------+------+-----------------------+-----------------------+---------+-------------------+------+----------+-------+
+1 row in set, 1 warning (0,00 sec)
+
+mysql> 
+
