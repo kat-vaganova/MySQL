@@ -1,0 +1,15 @@
+caterina@caterina-EP41-UD3L:~$ redis-cli
+127.0.0.1:6379> smembers email
+(empty list or set)
+127.0.0.1:6379> ping
+PONG
+127.0.0.1:6379> mset Ivan Ivan@mail.ru Kirill Kirill@mail.ru
+OK
+127.0.0.1:6379> get Ivan
+"Ivan@mail.ru"
+127.0.0.1:6379> mset Ivan@mail.ru Ivan Kirill@mail.ru Kirill
+OK
+127.0.0.1:6379> get Kirill@mail.ru
+"Kirill"
+127.0.0.1:6379> 
+

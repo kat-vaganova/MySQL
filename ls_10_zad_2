@@ -1,0 +1,44 @@
+mysql> select
+    -> c.name,
+    ->   floor (avg(COUNT(1)) over ()) as avg_group,
+    ->   (select CONCAT_WS(' ', first_name, last_name) as name from profiles p order by p.birthday desc limit 1) as yong,
+    ->   (select CONCAT_WS(' ', first_name, last_name) as name from profiles p order by p.birthday  limit 1) as old,
+    ->   COUNT(1) as count_users,
+    ->   sum(COUNT(1)) OVER () as sum_user_sist,
+    ->    COUNT(1)/(sum(COUNT(1)) OVER ())*100 as protsent
+    -> from communities_users cu
+    -> inner join 
+    -> communities c
+    -> on (c.id = cu.community_id)
+    -> group by cu.community_id; 
++-------------+-----------+----------------+----------------+-------------+---------------+----------+
+| name        | avg_group | yong           | old            | count_users | sum_user_sist | protsent |
++-------------+-----------+----------------+----------------+-------------+---------------+----------+
+| molestiae   |         4 | Christy Deckow | Quincy Barrows |           4 |           100 |   4.0000 |
+| quia        |         4 | Christy Deckow | Quincy Barrows |           5 |           100 |   5.0000 |
+| cumque      |         4 | Christy Deckow | Quincy Barrows |           2 |           100 |   2.0000 |
+| at          |         4 | Christy Deckow | Quincy Barrows |           8 |           100 |   8.0000 |
+| quo         |         4 | Christy Deckow | Quincy Barrows |           6 |           100 |   6.0000 |
+| omnis       |         4 | Christy Deckow | Quincy Barrows |           2 |           100 |   2.0000 |
+| aliquam     |         4 | Christy Deckow | Quincy Barrows |           3 |           100 |   3.0000 |
+| iste        |         4 | Christy Deckow | Quincy Barrows |           5 |           100 |   5.0000 |
+| nihil       |         4 | Christy Deckow | Quincy Barrows |           7 |           100 |   7.0000 |
+| dolores     |         4 | Christy Deckow | Quincy Barrows |           8 |           100 |   8.0000 |
+| dignissimos |         4 | Christy Deckow | Quincy Barrows |           5 |           100 |   5.0000 |
+| ut          |         4 | Christy Deckow | Quincy Barrows |           3 |           100 |   3.0000 |
+| est         |         4 | Christy Deckow | Quincy Barrows |           7 |           100 |   7.0000 |
+| qui         |         4 | Christy Deckow | Quincy Barrows |           7 |           100 |   7.0000 |
+| unde        |         4 | Christy Deckow | Quincy Barrows |           2 |           100 |   2.0000 |
+| alias       |         4 | Christy Deckow | Quincy Barrows |           6 |           100 |   6.0000 |
+| corrupti    |         4 | Christy Deckow | Quincy Barrows |           4 |           100 |   4.0000 |
+| voluptate   |         4 | Christy Deckow | Quincy Barrows |           3 |           100 |   3.0000 |
+| nisi        |         4 | Christy Deckow | Quincy Barrows |           3 |           100 |   3.0000 |
+| doloribus   |         4 | Christy Deckow | Quincy Barrows |           2 |           100 |   2.0000 |
+| repellat    |         4 | Christy Deckow | Quincy Barrows |           2 |           100 |   2.0000 |
+| voluptatem  |         4 | Christy Deckow | Quincy Barrows |           5 |           100 |   5.0000 |
+| nobis       |         4 | Christy Deckow | Quincy Barrows |           1 |           100 |   1.0000 |
++-------------+-----------+----------------+----------------+-------------+---------------+----------+
+23 rows in set (0,00 sec)
+
+mysql> 
+
